@@ -86,7 +86,7 @@ public class FirebaseDynamicLinksPlugin extends ReflectiveCordovaPlugin {
                     @Override
                     public JSONObject then(Task<PendingDynamicLinkData> task) throws JSONException {
                         PendingDynamicLinkData data = task.getResult();
-
+                        cordova.getActivity().setIntent(null);
                         JSONObject result = new JSONObject();
                         result.put("deepLink", data.getLink());
                         result.put("clickTimestamp", data.getClickTimestamp());
